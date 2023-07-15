@@ -1,0 +1,27 @@
+/* 
+
+Seller : 
+  - List sellers
+
+Tickets: 
+  - List tickets by event
+  - List tickets by seller
+  - Give tickets to seller
+  - Receive tickets from seller
+  - Add tickets to event
+  - Remove tickets from event
+  - Edit tickets qty
+
+Events: 
+  - Create event
+  - List events
+  - List one event ( 
+    - Show tickets qty
+    - Show tickets given
+    - Show tickets receive
+    - Show remaining tickets
+  )
+  - Delete one event
+
+
+  */
