@@ -24,10 +24,10 @@ class EventsController {
       });
   }
   getOne(req: Request, res: Response) {
-    const { eventId } = req.params;
-    if (!eventId) throw Error('MISSING_ID');
+    const { id } = req.params;
+    if (!id) throw Error('MISSING_ID');
     eventsService
-      .getOne(eventId)
+      .getOne(id)
       .then((event) => {
         return res.status(200).send(event);
       })
@@ -36,10 +36,23 @@ class EventsController {
       });
   }
   delete(req: Request, res: Response) {
-    const { eventId } = req.params;
-    if (!eventId) throw Error('MISSING_ID');
+    const { id } = req.params;
+    if (!id) throw Error('MISSING_ID');
     eventsService
-      .deleteOne(eventId)
+      .deleteOne(id)
+      .then((message) => {
+        return res.status(200).json({ code: 200, message });
+      })
+      .catch((e) => {
+        errorHandler(res, e.message);
+      });
+  }
+  updateEvent(req: Request, res: Response) {
+    const { id } = req.params;
+    const { title, date } = req.body;
+    if (!id) throw Error('MISSING_ID');
+    eventsService
+      .updateEvent(id, title, date)
       .then((message) => {
         return res.status(200).json({ code: 200, message });
       })

@@ -3,9 +3,9 @@ import authService from '../../services/auth.service';
 import { errorHandler } from '../../utils/ErrorHandler';
 class AuthController {
   login(req: Request, res: Response): void {
-    const { email, password } = req.body;
+    const { name, password } = req.body;
     authService
-      .login(email, password)
+      .login(name, password)
       .then((user) => {
         res.status(200).send(user);
       })
@@ -14,9 +14,9 @@ class AuthController {
       });
   }
   register(req: Request, res: Response): void {
-    const { name, email, password } = req.body;
+    const { name, password } = req.body;
     authService
-      .register(name, email, password)
+      .register(name, password)
       .then((message) => {
         return res.status(200).json({ code: 200, message });
       })

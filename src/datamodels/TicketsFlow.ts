@@ -15,6 +15,8 @@ export interface TicketFlow {
   type: string;
   ticket: Ticket | mongoose.Types.ObjectId;
   event: Event | mongoose.Types.ObjectId;
+  giveMoney: boolean;
+  date: Date;
 }
 
 const schema = new mongoose.Schema({
@@ -22,7 +24,9 @@ const schema = new mongoose.Schema({
   seller: { type: mongoose.Schema.ObjectId, ref: 'Sellers', required: true, index: true },
   quantity: { type: Number, required: true },
   ticket: { type: mongoose.Schema.ObjectId, ref: 'Tickets', required: true, index: true },
-  event: { type: mongoose.Schema.ObjectId, ref: 'Events', required: true, index: true },
+  event: { type: mongoose.Schema.ObjectId, ref: 'Events', index: true },
+  giveMoney: { type: Boolean },
+  date: { type: Date, required: true, index: true },
 });
 
 schema.index({ type: 1, event: 1 });

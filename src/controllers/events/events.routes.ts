@@ -6,4 +6,5 @@ export default express
   .post('/', adminAuth, eventsController.create)
   .get('/', adminAuth, eventsController.getAll)
   .get('/:id', adminAuth, eventsController.getOne)
-  .delete('/:id', adminAuth, eventsController.delete);
+  .delete('/:id', adminAuth, eventsController.delete)
+  .put('/:id', adminAuth, eventsController.updateEvent);

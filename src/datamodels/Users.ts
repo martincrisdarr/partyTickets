@@ -9,12 +9,10 @@ export interface User {
   _id: mongoose.Types.ObjectId;
   name: string;
   password: string;
-  email: string;
 }
 
 const schema = new mongoose.Schema({
   name: { type: String, required: true, index: true },
-  email: { type: String, required: true, index: true, unique: true },
   password: { type: String, required: true, select: false },
   type: { type: String, enum: Object.keys(UserTypes), required: true },
 });

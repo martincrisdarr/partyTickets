@@ -25,10 +25,24 @@ export const errorHandler = (res: Response, message: string) => {
         .json({ code: 400, message: 'El correo electronico ya se encuentra registrado' });
     case 'CREATE_ERROR':
       return res.status(400).json({ code: 400, message: 'Error al crear. Intente nuevamente' });
+    case 'NO_TICKETS_FOUND':
+      return res.status(400).json({ code: 400, message: 'No se encontraron tickets del evento' });
+    case 'NO_TICKETS_REMAINING':
+      return res.status(400).json({ code: 400, message: 'No quedaron tickets para entregar' });
+    case 'NOT_TICKETS_POSSESING':
+      return res.status(400).json({ code: 400, message: 'Este vendedor no posee tantos tickets' });
+    case 'NO_EVENT_UPDATED':
+      return res.status(400).json({ code: 400, message: 'No se pudo actualizar el evento' });
+    case 'GET_ONE_SELLER':
+      return res.status(400).json({ code: 400, message: 'No existe el vendedor' });
     case 'DATA_NOT_FOUND':
       return res
         .status(400)
         .json({ code: 400, message: 'No se encontró lo que estabas buscando.' });
+    case 'DELETE_EVENT_WITH_TICKETS':
+      return res
+        .status(400)
+        .json({ code: 400, message: 'No se puede borrar una fiesta con tickets.' });
     default:
       return res.status(500).json({ code: 500, message: 'Internal server error' });
   }
