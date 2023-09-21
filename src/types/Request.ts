@@ -1,6 +1,6 @@
 import { Request } from 'express';
-import { IUser } from '../datamodels/User';
+import { User } from '../datamodels/Users';
 
 export interface RequestCustom extends Request {
-  user: IUser;
+  user: User;
 }
