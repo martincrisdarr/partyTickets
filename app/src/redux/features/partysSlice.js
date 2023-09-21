@@ -91,6 +91,7 @@ export const partysSlice = createSlice({
     builder.addCase(addParty.fulfilled, (state) => {
       state.isFetching = false;
       state.message = 'Creada con éxito';
+      toast.success('Creada con éxito');
     });
     builder.addCase(addParty.pending, (state) => {
       state.isFetching = true;
@@ -106,6 +107,7 @@ export const partysSlice = createSlice({
     builder.addCase(removeParty.fulfilled, (state) => {
       state.isFetching = false;
       state.message = 'Eliminada con éxito';
+      toast.success('Eliminada con éxito');
     });
     builder.addCase(removeParty.pending, (state) => {
       state.isFetching = true;

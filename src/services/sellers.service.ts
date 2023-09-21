@@ -61,5 +61,10 @@ export class SellersService {
     if (!created) throw Error('CREATE_ERROR');
     return 'Tickets received successful';
   }
+  async deleteSeller(id: string): Promise<string> {
+    const seller = await Sellers.findByIdAndRemove(id);
+    if (!seller) throw Error('NOT_SELLER_REMOVE');
+    return 'Seller removed successful';
+  }
 }
 export default new SellersService();

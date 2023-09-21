@@ -7,6 +7,5 @@ export default express
   .get('/', adminAuth, SellersController.getAllSellers)
   .get('/:id', adminAuth, SellersController.getOneSeller)
   .post('/give', adminAuth, SellersController.giveSellerTickets)
-  .post('/receive', adminAuth, SellersController.receiveSellerTickets);
-// .get('/:eventId', adminAuth, TicketsController.getOne)
-// .delete('/:id', adminAuth, TicketsController.delete);
+  .post('/receive', adminAuth, SellersController.receiveSellerTickets)
+  .delete('/:id', adminAuth, SellersController.deleteSeller);

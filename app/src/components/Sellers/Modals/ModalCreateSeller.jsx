@@ -11,21 +11,20 @@ const ModalAddSellers = ({ isModalVisible, setIsModalVisible }) => {
   const handleOk = async () => {
     try {
       await formInstance.validateFields();
-      const name = formInstance.getFieldValue('name')
-      dispatch(createSellers({name}))
-      toast.success('Vendedor creado con éxito');
+      const name = formInstance.getFieldValue('name');
+      dispatch(createSellers({ name }));
       setIsModalVisible(false);
-      formInstance.resetFields()
+      formInstance.resetFields();
       dispatch(getAllSellers());
     } catch (e) {
       console.log(e);
       toast.error('No se pudo crear el vendedor');
     }
   };
-  
+
   const handleCancel = () => {
     setIsModalVisible(false);
-    formInstance.resetFields()
+    formInstance.resetFields();
   };
 
   return (
@@ -47,9 +46,8 @@ const ModalAddSellers = ({ isModalVisible, setIsModalVisible }) => {
                 message: 'Nombre es requerido',
               },
             ]}>
-            <Input  />
+            <Input />
           </Form.Item>
-        
         </Form>
       </Modal>
     </>

@@ -8,6 +8,11 @@ export enum OperationTypes {
   RECEIVE = 'RECEIVE',
 }
 
+export enum PaymentMethodTypes {
+  MERCADOPAGO = 'MERCADOPAGO',
+  EFECTIVO = 'EFECTIVO',
+}
+
 export interface TicketFlow {
   _id: mongoose.Types.ObjectId;
   seller: Seller | mongoose.Types.ObjectId;
@@ -15,8 +20,10 @@ export interface TicketFlow {
   type: string;
   ticket: Ticket | mongoose.Types.ObjectId;
   event: Event | mongoose.Types.ObjectId;
-  giveMoney: boolean;
-  date: Date;
+  paymentMethod: string;
+  methodOperation: string;
+  moneyReceived: string;
+  date: string;
 }
 
 const schema = new mongoose.Schema({
@@ -25,8 +32,10 @@ const schema = new mongoose.Schema({
   quantity: { type: Number, required: true },
   ticket: { type: mongoose.Schema.ObjectId, ref: 'Tickets', required: true, index: true },
   event: { type: mongoose.Schema.ObjectId, ref: 'Events', index: true },
-  giveMoney: { type: Boolean },
-  date: { type: Date, required: true, index: true },
+  paymentMethod: { type: String, enum: Object.keys(PaymentMethodTypes) },
+  moneyReceived: { type: String },
+  methodOperation: { type: String },
+  date: { type: String, required: true, index: true },
 });
 
 schema.index({ type: 1, event: 1 });

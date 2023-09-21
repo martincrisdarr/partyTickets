@@ -3,12 +3,21 @@ import Tickets from '../datamodels/Tickets';
 import TicketsFlow from '../datamodels/TicketsFlow';
 
 export class TicketsService {
-  async create(type: string, quantity: number, event: string, step: number): Promise<string> {
+  async create(
+    type: string,
+    quantity: number,
+    event: string,
+    step: number,
+    price: number
+  ): Promise<string> {
     const ticket = await Tickets.findOne({ type, event, step }).lean();
     if (ticket) {
-      await Tickets.updateOne({ _id: ticket._id }, { quantity: +ticket.quantity + +quantity });
+      await Tickets.updateOne(
+        { _id: ticket._id },
+        { quantity: +ticket.quantity + +quantity, price: price }
+      );
     } else {
-      const created = await Tickets.create({ type, quantity, event, step }).catch((err) => {
+      const created = await Tickets.create({ type, quantity, event, step, price }).catch((err) => {
         logger.error(JSON.stringify(err));
       });
       if (!created) throw Error('CREATE_ERROR');

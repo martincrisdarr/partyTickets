@@ -4,9 +4,9 @@ import { errorHandler } from '../../utils/ErrorHandler';
 
 class TicketsController {
   create(req: Request, res: Response) {
-    const { type, quantity, event, step } = req.body;
+    const { type, quantity, event, step, price } = req.body;
     ticketsService
-      .create(type, quantity, event, step)
+      .create(type, quantity, event, +step, price)
       .then((message) => {
         return res.status(200).json({ code: 200, message });
       })
@@ -15,9 +15,9 @@ class TicketsController {
       });
   }
   getEventTickets(req: Request, res: Response) {
-    const { eventId } = req.body;
+    const { id } = req.params;
     ticketsService
-      .getEventTickets(eventId)
+      .getEventTickets(id)
       .then((message) => {
         return res.status(200).json({ code: 200, message });
       })

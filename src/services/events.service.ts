@@ -45,8 +45,8 @@ export class EventsService {
     return { ...event, tickets };
   }
   async deleteOne(id: string): Promise<string> {
-    const tickets = await Tickets.find({ event: id });
-    if (!tickets) {
+    const tickets = await Tickets.find({ event: id }).lean();
+    if (!tickets.length) {
       const eventDelete = await Events.findOneAndDelete({ _id: id });
 
       if (!eventDelete) throw Error('NO_PARTY_EXISTS');

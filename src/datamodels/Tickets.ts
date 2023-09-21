@@ -14,6 +14,7 @@ export interface Ticket {
   quantity: number;
   event: Event | mongoose.Types.ObjectId;
   step: number;
+  price: number;
 }
 
 const schema = new mongoose.Schema({
@@ -21,6 +22,7 @@ const schema = new mongoose.Schema({
   quantity: { type: Number, required: true, default: 0 },
   event: { type: mongoose.Schema.ObjectId, ref: 'Events', required: true, index: true },
   step: { type: Number },
+  price: { type: Number, required: true },
 });
 
 export default mongoose.model<Ticket>('Tickets', schema);

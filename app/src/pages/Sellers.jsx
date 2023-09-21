@@ -1,7 +1,13 @@
-import SellersTable from "../components/Sellers/SellersTable/SellersTable";
-import LayoutPage from "../layout/LayoutPage";
-
+import { useDispatch } from 'react-redux';
+import SellersTable from '../components/Sellers/SellersTable/SellersTable';
+import LayoutPage from '../layout/LayoutPage';
+import { useEffect } from 'react';
+import { setPageActive } from '../redux/features/commonSlice';
 const Sellers = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setPageActive('SELLERS'));
+  }, []);
   return (
     <>
       <LayoutPage>

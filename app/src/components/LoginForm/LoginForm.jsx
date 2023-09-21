@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginQuery } from '../../redux/features/authSlice';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '/logo.png';
 const styles = {
   title:
     'border-b-2 text-lg  mb-5 border-[#d9d9d9] pb-2 text-[#343434] after:block after:absolute after:inset-x-0 after:bottom-[-2px] after:w-16 after:h-0.5 after:bg-blue-300 relative inline-block',
@@ -17,14 +17,18 @@ const styles = {
 const LoginForm = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.auth);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const onFinish = async (values) => {
     dispatch(loginQuery(values)).then((action) => {
-      action.meta.requestStatus === 'fulfilled' && navigate('/dashboard')
+      action.meta.requestStatus === 'fulfilled' && navigate('/dashboard');
     });
   };
   return (
     <div className={styles.formContainer}>
+      <h1 className="flex gap-2 items-center text-2xl -mt-12">
+        <img src={logo} alt="logo" className="w-6" />
+        Ticket Manager
+      </h1>
       <h1 className={styles.title}>Ingresar</h1>
       <Form name="login" onFinish={onFinish} className={styles.form}>
         <Form.Item

@@ -58,5 +58,17 @@ class SellersController {
         errorHandler(res, e.message);
       });
   }
+  deleteSeller(req: Request, res: Response) {
+    const { id } = req.params;
+    if (!id) throw Error('MISSING_ID');
+    sellersService
+      .deleteSeller(id)
+      .then((message) => {
+        return res.status(200).json({ code: 200, message });
+      })
+      .catch((e) => {
+        errorHandler(res, e.message);
+      });
+  }
 }
 export default new SellersController();

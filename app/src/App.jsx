@@ -5,10 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Party from './pages/Party';
-import Partys from './pages/Partys';
+import Seller from './pages/Seller';
 import Sellers from './pages/Sellers';
 import { logout } from './redux/features/authSlice';
-import Seller from './pages/Seller';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,20 +39,15 @@ function App() {
       return Promise.reject(err);
     }
   );
-  
-  
+
   const routes = createBrowserRouter([
     {
       path: '/',
-      element: token ? <Navigate to='/dashboard' /> : <Login />,
+      element: token ? <Navigate to="/dashboard" /> : <Login />,
     },
     {
       path: '/dashboard',
-      element: token ? <Dashboard /> : <Navigate to='/' />,
-    },
-    {
-      path: '/partys',
-      element: token ? <Partys /> : <Navigate to="/" />,
+      element: token ? <Dashboard /> : <Navigate to="/" />,
     },
     {
       path: '/party/:id',
