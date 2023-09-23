@@ -6,8 +6,8 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node src/index.js",
+    "start:dev": "nodemon --exec ts-node src/index.ts",
     "build": "yarn build:server",
     "build:server": "tsc",
     "clean": "rmdir /s /q dist",
