@@ -4,6 +4,7 @@
   "private": true,
   "author": "panganz",
   "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "build": "build src/index.ts",
     "clean": "rm -rf build",
