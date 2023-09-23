@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "babel src -d lib",
     "clean": "rm -rf build",
     "compile": "tsc",
     "start": "node src/index.ts",
