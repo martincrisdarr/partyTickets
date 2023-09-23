@@ -1,4 +1,4 @@
-import './setup';
+require('./setup');
 
 import logger from './common/logger';
 import Server from './common/server';
