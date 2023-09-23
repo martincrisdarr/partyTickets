@@ -3,7 +3,7 @@ config();
 const env = process.env;
 export default {
   tokenExpiry: 6.048e8,
-  secret: 'fran-tickets-03454-1fcc-0n-',
+  secretKey: env.SECRET_KEY || '',
   publicHost: env.PUBLIC_URL || '',
   mongoHost: env.MONGO_HOST || '127.0.0.1',
   mongoUser: env.MONGO_USER || '',
