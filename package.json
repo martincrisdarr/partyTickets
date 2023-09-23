@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "build": "build src/index.ts",
+    "build": "tsc",
     "clean": "rm -rf build",
     "compile": "tsc",
     "start": "node src/index.ts",
