@@ -1,17 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-      "target": "ESNext",
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "sourceMap": true,
-      "moduleResolution": "node",
-      "outDir": "build",
-      "skipLibCheck": true,
-      "allowJs": true,
-      "strict": true,
-      "typeRoots": ["./src/types", "./node_modules/@types"],
-      "resolveJsonModule": true
+    "target": "ESNext",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "strict": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "resolveJsonModule": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

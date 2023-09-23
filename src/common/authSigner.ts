@@ -6,5 +6,5 @@ const signer = (data: object, key: string): string => {
 };
 
 export const AuthSigner = (user: object): string => {
-  return signer({ ...user, tokenType: 'auth' }, settings.secret);
+  return signer({ ...user, tokenType: 'auth' }, settings.secretKey);
 };

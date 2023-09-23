@@ -6,11 +6,11 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "build": "babel src -d lib",
-    "clean": "rm -rf build",
-    "compile": "tsc",
-    "start": "node src/index.ts",
-    "start:dev": "nodemon src/index.ts",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "yarn build:server",
+    "build:server": "tsc",
+    "clean": "rmdir /s /q dist",
     "lint": "eslint src",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write '*/.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
@@ -45,6 +45,8 @@
     "winston": "^3.10.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.20",
     "@faker-js/faker": "^8.0.2",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.13",

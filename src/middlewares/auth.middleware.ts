@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { User } from '../datamodels/Users';
 import { Request, Response, NextFunction } from 'express';
 import Settings from '../settings';
-const secret = Settings.secret;
+const secret = Settings.secretKey;
 
 export const adminAuth = (req: Request, res: Response, next: NextFunction) => {
   const tokenHeader = req.headers['authorization'];
