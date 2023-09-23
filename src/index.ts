@@ -1,9 +1,9 @@
 require('./setup');
 
-import logger from './common/logger';
-import Server from './common/server';
-import routes from './routes';
-import Settings from './settings';
+const logger = require('./common/logger');
+const Server = require('./common/server');
+const routes = require('./routes');
+const Settings = require('./settings');
 
 const port = parseInt(Settings.applicationPort);
 logger.info(`Starting server at port ${port}..`);
